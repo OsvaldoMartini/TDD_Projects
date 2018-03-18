@@ -42,6 +42,12 @@
     <Compile Include="ServiceSunsetCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Expected Interfaces\Expected Interfaces.csproj">
+      <Project>{1DC271E5-1055-4552-A6D6-BF75D13C8268}</Project>
+      <Name>Expected Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

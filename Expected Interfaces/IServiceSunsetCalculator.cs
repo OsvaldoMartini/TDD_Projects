@@ -8,5 +8,6 @@ namespace Expected_Interfaces
 {
     public interface IServiceSunsetCalculator
     {
+
     }
 }
