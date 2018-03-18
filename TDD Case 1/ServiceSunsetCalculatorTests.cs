@@ -25,7 +25,8 @@ namespace TDD_Case_1
         public void ServiceSunsetCalculator_ImplementsISunsetCalculator()
         {
             //Arrange values to Initiate de TDD
-            
+            var srvSunsetCalculator = new ServiceSunsetCalculator();
+            Assert.IsInstanceOf<IServiceSunsetCalculator>(srvSunsetCalculator);
             
             //Actions and/or Methods
 
