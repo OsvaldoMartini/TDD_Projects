@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Expected_Interfaces;
+using Microsoft.CSharp.RuntimeBinder;
 using Newtonsoft.Json;
 
 namespace Expected_Classes
@@ -32,9 +33,18 @@ namespace Expected_Classes
         {
             //Pick things in RunTime
             //"Dynamic" -> We are going to be able to pick up thinks in Run-Time rather then compiler-time
-            dynamic data =  JsonConvert.DeserializeObject(jsonContent);
-            string sunset = data.result.sunset;
-            return sunset;
+            try
+            {
+                dynamic data = JsonConvert.DeserializeObject(jsonContent);
+                string sunset = data.result.sunset;
+                return sunset;
+
+            }
+            catch (RuntimeBinderException)
+            {
+                //"$" JSON Interpolation in this VS-2013 "$JSON object does not contain 'sunset': {jsonContent}"); Does not Worked
+                throw new ArgumentException(string.Format("JSON object does not contain 'sunset': {0}", jsonContent));
+            }
         }
 
     }
