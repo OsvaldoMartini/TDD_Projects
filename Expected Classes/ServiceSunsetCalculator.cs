@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Expected_Interfaces;
@@ -15,7 +17,11 @@ namespace Expected_Classes
         {
             //This Must Call the service to get data
             //HardCode Service Data
-            string serviceData = "{\"result\":{\"sunrise\":\"6:37:49 AM\",\"sunset\":\"4:42:49 PM\",\"solar_noon\":\"11:40:19 AM\",\"day_length\":\"10:05:00.1530000\"},\"status\":\"OK\"}";
+            //string serviceData = "{\"result\":{\"sunrise\":\"6:37:49 AM\",\"sunset\":\"4:42:49 PM\",\"solar_noon\":\"11:40:19 AM\",\"day_length\":\"10:05:00.1530000\"},\"status\":\"OK\"}";
+
+            /*Refactored to Get From Real Service*/
+            // xxx call the Service to get Data
+            string serviceData = GetServiceDate(date);
 
             //parse the "sunset" from data
             string sunsetData = ParseSunset(serviceData);
@@ -58,5 +64,23 @@ namespace Expected_Classes
             DateTime time = DateTime.Parse(timeString);
             return date.Date + time.TimeOfDay;
         }
+
+        public string GetServiceDate(DateTime date)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress= new Uri("http://localhost:1200/api/SolarCalculator");
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var apiString = string.Format("?lat=33.6624&lng=-117.7470&date={0:yyyy-MM-dd}", date);
+                HttpResponseMessage response = client.GetAsync(apiString).Result;
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadAsStringAsync().Result;
+
+                return null;
+            }
+
+        }
+
     }
 }
