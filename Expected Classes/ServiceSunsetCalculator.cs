@@ -14,10 +14,16 @@ namespace Expected_Classes
         public DateTime GetSunset(DateTime date)
         {
             //This Must Call the service to get data
+            //HardCode Service Data
+            string serviceData = "{\"result\":{\"sunrise\":\"6:37:49 AM\",\"sunset\":\"4:42:49 PM\",\"solar_noon\":\"11:40:19 AM\",\"day_length\":\"10:05:00.1530000\"},\"status\":\"OK\"}";
+
             //parse the "sunset" from data
-            //convert the "sunset" value do DateTime
+            string sunsetData = ParseSunset(serviceData);
             
-            throw new NotImplementedException();
+            //convert the "sunset" value do DateTime
+            DateTime sunset = ToLocalTime(sunsetData, date);
+
+            return sunset;
         }
 
         public DateTime GetSunrise(DateTime date)
