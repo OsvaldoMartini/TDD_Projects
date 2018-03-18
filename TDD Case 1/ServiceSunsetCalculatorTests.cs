@@ -76,9 +76,29 @@ namespace TDD_Case_1
             string timeString = "4:42:49 PM";
             DateTime date = new DateTime(2016, 09, 10);
             DateTime expected = new DateTime(2016, 09, 10, 16, 42, 49);
+            
             //Action
             DateTime result = ServiceSunsetCalculator.ToLocalTime(timeString, date);
 
+            //Assert
+            Assert.AreEqual(expected, result);
+
+        }
+
+
+        [Test]
+        public void GetSunset_OnValidDate_ReturnExpectedDateTime()
+        {
+            //I am Violating the DRY principle Here ALL the Time
+            //Don’t-Repeat-Yourself (DRY) design principle
+
+            //Arrange
+            DateTime date = new DateTime(2016, 09, 10);
+            DateTime expected = new DateTime(2016, 09, 10, 16, 42, 49);
+            
+            //Action
+            var calculator = new ServiceSunsetCalculator();
+            var result = calculator.GetSunset(date);
             //Assert
             Assert.AreEqual(expected, result);
 
