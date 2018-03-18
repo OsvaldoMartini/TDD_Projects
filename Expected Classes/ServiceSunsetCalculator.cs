@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Expected_Interfaces;
+using Newtonsoft.Json;
 
 namespace Expected_Classes
 {
@@ -27,9 +28,13 @@ namespace Expected_Classes
             throw new NotImplementedException();
         }
 
-        public static string ParseSunset(string goodData)
+        public static string ParseSunset(string jsonContent)
         {
-            throw new NotImplementedException();
+            //Pick things in RunTime
+            //"Dynamic" -> We are going to be able to pick up thinks in Run-Time rather then compiler-time
+            dynamic data =  JsonConvert.DeserializeObject(jsonContent);
+            string sunset = data.result.sunset;
+            return sunset;
         }
 
     }
