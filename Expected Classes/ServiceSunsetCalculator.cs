@@ -49,7 +49,8 @@ namespace Expected_Classes
 
         public static DateTime ToLocalTime(string timeString, DateTime date)
         {
-            throw new NotImplementedException();
+            DateTime time = DateTime.Parse(timeString);
+            return date.Date + time.TimeOfDay;
         }
     }
 }
