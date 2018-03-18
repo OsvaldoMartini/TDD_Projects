@@ -38,7 +38,7 @@ namespace TDD_Case_1
         }
 
         [Test]
-        public void ParseJSonSunsetValu_OnGoodData_ReturnExpectedString()
+        public void ParseJSonSunsetValue_OnGoodData_ReturnExpectedString()
         {
             //Arrange values  - Expected
             string expected = "4:42:49 PM";
