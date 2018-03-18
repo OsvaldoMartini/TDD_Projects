@@ -7,9 +7,8 @@ namespace Expected_Classes
 {
     public class ServiceSunsetCalculator : IServiceSunsetCalculator
     {
-        private SolarCalculator _service;
-
-        public SolarCalculator Service
+        private ISolarCalculator _service;
+        public ISolarCalculator Service
         {
             get
             {
