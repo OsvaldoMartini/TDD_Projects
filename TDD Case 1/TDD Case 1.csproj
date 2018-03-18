@@ -78,13 +78,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Expected Classes\Expected Classes.csproj">
-      <Project>{A239FA31-0893-43DB-9F9F-3AC9376912FD}</Project>
-      <Name>Expected Classes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Expected Interfaces\Expected Interfaces.csproj">
-      <Project>{1DC271E5-1055-4552-A6D6-BF75D13C8268}</Project>
-      <Name>Expected Interfaces</Name>
+    <ProjectReference Include="..\SunsetCalculator Library\SunsetCalculator Library.csproj">
+      <Project>{9AEAD546-771F-4113-AF28-A5BF973472FF}</Project>
+      <Name>SunsetCalculator Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

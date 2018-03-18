@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Expected_Classes;
-using Expected_Interfaces;
 using Moq;
 using NUnit.Framework;
+using SunsetCalculator_Library.Concrete;
+using SunsetCalculator_Library.Interfaces;
 
 namespace TDD_Case_1
 {

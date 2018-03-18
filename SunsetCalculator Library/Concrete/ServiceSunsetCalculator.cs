@@ -1,9 +1,9 @@
 ﻿using System;
-using Expected_Interfaces;
 using Microsoft.CSharp.RuntimeBinder;
 using Newtonsoft.Json;
+using SunsetCalculator_Library.Interfaces;
 
-namespace Expected_Classes
+namespace SunsetCalculator_Library.Concrete
 {
     public class ServiceSunsetCalculator : IServiceSunsetCalculator
     {

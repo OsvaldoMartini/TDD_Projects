@@ -3,19 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expected Classes", "Expected Classes", "{8228A491-5212-4C54-9AC1-559F7A62EBDF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDD Case 1", "TDD Case 1", "{4740FB95-A486-4113-A0FF-0E228B9C3827}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expected Interfaces", "Expected Interfaces", "{09B244D3-C179-4F01-B206-9DA387C4A6AE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expected Classes", "Expected Classes\Expected Classes.csproj", "{A239FA31-0893-43DB-9F9F-3AC9376912FD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expected Interfaces", "Expected Interfaces\Expected Interfaces.csproj", "{1DC271E5-1055-4552-A6D6-BF75D13C8268}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expected Abstractions", "Expected Abstractions", "{6ABE7A0B-BD0D-4B91-9E15-BD4922341983}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expected Abstractions", "Expected Abstractions\Expected Abstractions.csproj", "{71501C69-7488-4100-B599-45B79C27D302}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD Case 1", "TDD Case 1\TDD Case 1.csproj", "{77787462-02A8-4508-827E-6271C881CE81}"
 EndProject
@@ -24,36 +12,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{582A6D
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SunsetCalculator Library", "SunsetCalculator Library", "{B646D2ED-6DF9-4B4A-B35B-E9C33A7011BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunsetCalculator Library", "SunsetCalculator Library\SunsetCalculator Library.csproj", "{9AEAD546-771F-4113-AF28-A5BF973472FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A239FA31-0893-43DB-9F9F-3AC9376912FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A239FA31-0893-43DB-9F9F-3AC9376912FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A239FA31-0893-43DB-9F9F-3AC9376912FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A239FA31-0893-43DB-9F9F-3AC9376912FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DC271E5-1055-4552-A6D6-BF75D13C8268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DC271E5-1055-4552-A6D6-BF75D13C8268}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DC271E5-1055-4552-A6D6-BF75D13C8268}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DC271E5-1055-4552-A6D6-BF75D13C8268}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71501C69-7488-4100-B599-45B79C27D302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71501C69-7488-4100-B599-45B79C27D302}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71501C69-7488-4100-B599-45B79C27D302}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71501C69-7488-4100-B599-45B79C27D302}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77787462-02A8-4508-827E-6271C881CE81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77787462-02A8-4508-827E-6271C881CE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77787462-02A8-4508-827E-6271C881CE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77787462-02A8-4508-827E-6271C881CE81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AEAD546-771F-4113-AF28-A5BF973472FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AEAD546-771F-4113-AF28-A5BF973472FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AEAD546-771F-4113-AF28-A5BF973472FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AEAD546-771F-4113-AF28-A5BF973472FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A239FA31-0893-43DB-9F9F-3AC9376912FD} = {8228A491-5212-4C54-9AC1-559F7A62EBDF}
 		{77787462-02A8-4508-827E-6271C881CE81} = {4740FB95-A486-4113-A0FF-0E228B9C3827}
-		{1DC271E5-1055-4552-A6D6-BF75D13C8268} = {09B244D3-C179-4F01-B206-9DA387C4A6AE}
-		{71501C69-7488-4100-B599-45B79C27D302} = {6ABE7A0B-BD0D-4B91-9E15-BD4922341983}
+		{9AEAD546-771F-4113-AF28-A5BF973472FF} = {B646D2ED-6DF9-4B4A-B35B-E9C33A7011BA}
 	EndGlobalSection
 EndGlobal

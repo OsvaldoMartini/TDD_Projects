@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Expected_Interfaces;
+using SunsetCalculator_Library.Interfaces;
 
-namespace Expected_Classes
+namespace SunsetCalculator_Library.Concrete
 {
     public class SolarCalculator : ISolarCalculator
     {
