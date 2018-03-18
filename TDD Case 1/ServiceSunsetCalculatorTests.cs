@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Expected_Classes;
 using Expected_Interfaces;
+using Moq;
 using NUnit.Framework;
 
 namespace TDD_Case_1
@@ -93,12 +94,22 @@ namespace TDD_Case_1
             //Don’t-Repeat-Yourself (DRY) design principle
 
             //Arrange
+            //Create in Memory Fake Object and Use this isolate object
+            //In a Mock Obj, I wanna tell it What I want to do,  when I expected to do when I call a particular Method
+            var serviceMock = new Mock<ISolarCalculator>();
+            serviceMock.Setup(s => s.GetServiceDate(It.IsAny<DateTime>())).Returns(goodData);
+
             DateTime date = new DateTime(2016, 09, 10);
             DateTime expected = new DateTime(2016, 09, 10, 16, 42, 49);
             
             //Action
             var calculator = new ServiceSunsetCalculator();
+            
+            //This Is the Magic tha Mock Do
+            calculator.Service = serviceMock.Object;
+
             var result = calculator.GetSunset(date);
+
             //Assert
             Assert.AreEqual(expected, result);
 
