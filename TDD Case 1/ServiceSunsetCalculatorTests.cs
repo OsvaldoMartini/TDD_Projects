@@ -68,5 +68,20 @@ namespace TDD_Case_1
             
             //Assert
         }
+
+        [Test]
+        public void ToLocalTime_OnValidValue_ReturnExpectedDateTime()
+        {
+            //Arrange
+            string timeString = "4:42:49 PM";
+            DateTime date = new DateTime(2016, 09, 10);
+            DateTime expected = new DateTime(2016, 09, 10, 16, 42, 49);
+            //Action
+            DateTime result = ServiceSunsetCalculator.ToLocalTime(timeString, date);
+
+            //Assert
+            Assert.AreEqual(expected, result);
+
+        }
     }
 }
