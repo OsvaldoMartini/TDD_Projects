@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ServiceSunsetCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolarCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Expected Interfaces\Expected Interfaces.csproj">
