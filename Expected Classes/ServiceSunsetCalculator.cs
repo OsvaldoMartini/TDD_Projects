@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Expected_Classes
 {
-    public class Class1
+    public class ServiceSunsetCalculator
     {
     }
 }
