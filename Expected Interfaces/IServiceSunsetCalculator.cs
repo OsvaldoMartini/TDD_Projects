@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Expected_Interfaces
 {
-    public class IServiceSunsetCalculator
+    public interface IServiceSunsetCalculator
     {
     }
 }
