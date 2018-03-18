@@ -7,6 +7,19 @@ namespace Expected_Classes
 {
     public class ServiceSunsetCalculator : IServiceSunsetCalculator
     {
+        private SolarCalculator _service;
+
+        public SolarCalculator Service
+        {
+            get
+            {
+                if (_service == null)
+                    _service = new SolarCalculator();
+                return _service;
+            }
+            set { _service = value; }
+        }
+
         public DateTime GetSunset(DateTime date)
         {
             //This Must Call the service to get data
@@ -15,8 +28,8 @@ namespace Expected_Classes
 
             /*Refactored to Get From Real Service*/
             // xxx call the Service to get Data
-            var service = new SolarCalculator();
-            string serviceData = service.GetServiceDate(date);
+            //var service = new SolarCalculator();
+            string serviceData = Service.GetServiceDate(date);
 
             //parse the "sunset" from data
             string sunsetData = ParseSunset(serviceData);

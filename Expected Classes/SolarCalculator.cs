@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Expected_Interfaces;
 
 namespace Expected_Classes
 {
-    public class SolarCalculator
+    public class SolarCalculator : ISolarCalculator
     {
+        private ISolarCalculator _solarCalculatorImplementation;
+
         public string GetServiceDate(DateTime date)
         {
             using (var client = new HttpClient())
@@ -17,9 +20,9 @@ namespace Expected_Classes
                 HttpResponseMessage response = client.GetAsync(apiString).Result;
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsStringAsync().Result;
-
-                return null;
             }
+
+            return null;
 
         }
     }
