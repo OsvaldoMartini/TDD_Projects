@@ -4,7 +4,7 @@ using NUnit.Framework;
 using SunsetCalculator_Library.Concrete;
 using SunsetCalculator_Library.Interfaces;
 
-namespace TDD_Case_1
+namespace TDD_Case_1.JSON_Parse
 {
     /*Summary
        Defining the Interfaces and Classes

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DI.Abstraction;
-using DI.Abstraction.Concrete;
+﻿using DI.Abstraction.BusinessObjects;
 using DI.Abstraction.Interfaces;
+using DI.Abstraction.Models;
 using Moq;
 using NUnit.Framework;
 
-namespace TDD_Case_2
+namespace TDD_Case_2.Mocking
 {
     [TestFixture]
-    public class UnitTest
+    public class Mocking
     {
         [Test]
 

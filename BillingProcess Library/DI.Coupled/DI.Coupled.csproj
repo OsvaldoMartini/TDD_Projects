@@ -39,12 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillingProcessor.cs" />
-    <Compile Include="Commerce.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Notifier.cs" />
-    <Compile Include="OrderInfo.cs" />
+    <Compile Include="Concrete\BillingProcessor.cs" />
+    <Compile Include="BusinessObjects\Commerce.cs" />
+    <Compile Include="Concrete\Customer.cs" />
+    <Compile Include="Concrete\Logger.cs" />
+    <Compile Include="Concrete\Notifier.cs" />
+    <Compile Include="Models\OrderInfo.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

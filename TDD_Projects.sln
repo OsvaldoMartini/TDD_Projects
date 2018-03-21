@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DI.Abstraction", "BillingPr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDD Case 2", "TDD Case 2", "{1014B506-91B5-4205-9138-406439544344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD Case 2", "TDD Case 2\TDD Case 2.csproj", "{F8DDA6E8-BC47-4CCC-9EEE-84E48E667209}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD Case 1", "TDD Case 2\TDD Case 1.csproj", "{F8DDA6E8-BC47-4CCC-9EEE-84E48E667209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

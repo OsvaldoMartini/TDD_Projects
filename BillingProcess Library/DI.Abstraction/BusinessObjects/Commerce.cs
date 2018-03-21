@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DI.Abstraction.Interfaces;
+﻿using DI.Abstraction.Interfaces;
+using DI.Abstraction.Models;
 
-namespace DI.Abstraction
+namespace DI.Abstraction.BusinessObjects
 {
     public class Commerce
     {

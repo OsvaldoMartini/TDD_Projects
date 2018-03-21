@@ -1,5 +1,6 @@
 ﻿using System;
 using DI.Abstraction.Interfaces;
+using DI.Abstraction.Models;
 
 namespace DI.Abstraction.Concrete
 {
