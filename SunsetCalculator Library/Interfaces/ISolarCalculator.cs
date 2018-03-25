@@ -5,5 +5,6 @@ namespace SunsetCalculator_Library.Interfaces
     public interface ISolarCalculator
     {
         string GetServiceDate(DateTime date);
+        string GetServiceQtdMovies(string value);
     }
 }

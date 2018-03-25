@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Xml.Schema;
 using SunsetCalculator_Library.Interfaces;
 
 namespace SunsetCalculator_Library.Concrete
@@ -25,5 +27,28 @@ namespace SunsetCalculator_Library.Concrete
             return null;
 
         }
+
+        public string GetServiceQtdMovies(string value)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://jsonmock.hackerrank.com/api/movies/search/");
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                var apiString = string.Format("?Title={0}", value);
+                HttpResponseMessage response = client.GetAsync(apiString).Result;
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadAsStringAsync().Result;
+            }
+
+            return string.Empty;
+
+        }
+    }
+
+    public class ResponseObj
+    {
+        public string total;
+        public string total_pages;
     }
 }

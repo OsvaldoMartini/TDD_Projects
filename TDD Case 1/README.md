@@ -26,6 +26,13 @@ JSON Data:
    "status":"ERROR"
 }
 	
+Check GetServiceQtdMovies()
+HardCode file: HackerRank_1.json
+HardCode file: HackerRank_2.json
+https://jsonmock.hackerrank.com/api/movies/search/
+https://jsonmock.hackerrank.com/api/movies/search/?Title=Waterworld
+	
+
 	
 Aux Tool will create Scapes in Json File
 https://www.freeformatter.com/java-dotnet-escape.html#ad-output
