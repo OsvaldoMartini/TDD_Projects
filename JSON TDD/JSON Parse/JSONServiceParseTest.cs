@@ -1,10 +1,10 @@
 ﻿using System;
 using Moq;
 using NUnit.Framework;
-using SunsetCalculator_Library.Concrete;
-using SunsetCalculator_Library.Interfaces;
+using CalculatorLibrary.Concrete;
+using CalculatorLibrary.Interfaces;
 
-namespace TDD_Case_1.JSON_Parse
+namespace JSON_Parse_Test
 {
     /*Summary
        Defining the Interfaces and Classes
@@ -17,7 +17,7 @@ namespace TDD_Case_1.JSON_Parse
        */
 
     [TestFixture]
-    public class ServiceSunsetCalculatorTests
+    public class JSONServiceParseTest
     {
 
        string goodData =  "{\"result\":{\"sunrise\":\"6:37:49 AM\",\"sunset\":\"4:42:49 PM\",\"solar_noon\":\"11:40:19 AM\",\"day_length\":\"10:05:00.1530000\"},\"status\":\"OK\"}";
@@ -31,12 +31,12 @@ namespace TDD_Case_1.JSON_Parse
         public void ServiceSunsetCalculator_ImplementsISunsetCalculator()
         {
             //Arrange values to Initiate de TDD
-            var srvSunsetCalculator = new ServiceSunsetCalculator();
+            var srvSunsetCalculator = new Calculator();
             
             //Actions and/or Methods
 
             //Assert
-            Assert.IsInstanceOf<IServiceSunsetCalculator>(srvSunsetCalculator);
+            Assert.IsInstanceOf<ICalculator>(srvSunsetCalculator);
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace TDD_Case_1.JSON_Parse
             //Arrange values  - Expected
             string expected = "4:42:49 PM";
             //Action
-            string result = ServiceSunsetCalculator.ParseSunset(goodData);
+            string result = Calculator.ParseSunset(goodData);
             //Assert
             Assert.AreEqual(expected,result);
         }
@@ -59,7 +59,7 @@ namespace TDD_Case_1.JSON_Parse
             //Action
             try
             {
-                string result = ServiceSunsetCalculator.ParseSunset(badData);
+                string result = Calculator.ParseSunset(badData);
                 Assert.Fail("ArgumentException was not thrown");
             }
             catch (ArgumentException ex)
@@ -79,7 +79,7 @@ namespace TDD_Case_1.JSON_Parse
             DateTime expected = new DateTime(2016, 09, 10, 16, 42, 49);
             
             //Action
-            DateTime result = ServiceSunsetCalculator.ToLocalTime(timeString, date);
+            DateTime result = Calculator.ToLocalTime(timeString, date);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -96,14 +96,14 @@ namespace TDD_Case_1.JSON_Parse
             //Arrange
             //Create in Memory Fake Object and Use this isolate object
             //In a Mock Obj, I wanna tell it What I want to do,  when I expected to do when I call a particular Method
-            var serviceMock = new Mock<ISolarCalculator>();
+            var serviceMock = new Mock<IGetServices>();
             serviceMock.Setup(s => s.GetServiceDate(It.IsAny<DateTime>())).Returns(goodData);
 
             DateTime date = new DateTime(2016, 09, 10);
             DateTime expected = new DateTime(2016, 09, 10, 16, 42, 49);
             
             //Action
-            var calculator = new ServiceSunsetCalculator();
+            var calculator = new Calculator();
             
             //This Is the Magic tha Mock Do
             calculator.Service = serviceMock.Object;
@@ -128,11 +128,11 @@ namespace TDD_Case_1.JSON_Parse
             //Arrange
             //Create in Memory Fake Object and Use this isolate object
             //In a Mock Obj, I wanna tell it What I want to do,  when I expected to do when I call a particular Method
-            var serviceMock = new Mock<ISolarCalculator>();
+            var serviceMock = new Mock<IGetServices>();
             serviceMock.Setup(s => s.GetServiceQtdMovies(It.IsAny<string>())).Returns(dataHardCode);
 
             //Action
-            var calculator = new ServiceSunsetCalculator();
+            var calculator = new Calculator();
 
             //This Is the Magic tha Mock Do
             calculator.Service = serviceMock.Object;
@@ -155,7 +155,7 @@ namespace TDD_Case_1.JSON_Parse
             //Don’t-Repeat-Yourself (DRY) design principle
 
             //Arrange
-            var calculator = new ServiceSunsetCalculator();
+            var calculator = new Calculator();
 
             //Action
             var result = calculator.GetMoviesTotal(titleMovie);

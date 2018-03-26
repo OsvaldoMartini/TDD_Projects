@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SunsetCalculator Library")]
+[assembly: AssemblyTitle("JSON_Parse_Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SunsetCalculator Library")]
+[assembly: AssemblyProduct("JSON_Parse_Test")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1d3c376e-cfd9-4a6f-89f3-8cb16738cc51")]
+[assembly: Guid("3d079081-78d3-4ff8-b750-f67b4295cd48")]
 
 // Version information for an assembly consists of the following four values:
 //

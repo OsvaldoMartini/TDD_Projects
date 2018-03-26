@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Xml.Schema;
-using SunsetCalculator_Library.Interfaces;
+using CalculatorLibrary.Interfaces;
 
-namespace SunsetCalculator_Library.Concrete
+namespace CalculatorLibrary.Concrete
 {
-    public class SolarCalculator : ISolarCalculator
+    public class GetServices : IGetServices
     {
-        private ISolarCalculator _solarCalculatorImplementation;
 
         public string GetServiceDate(DateTime date)
         {
@@ -46,9 +43,4 @@ namespace SunsetCalculator_Library.Concrete
         }
     }
 
-    public class ResponseObj
-    {
-        public string total;
-        public string total_pages;
-    }
 }

@@ -1,19 +1,19 @@
 ﻿using System;
+using CalculatorLibrary.Interfaces;
 using Microsoft.CSharp.RuntimeBinder;
 using Newtonsoft.Json;
-using SunsetCalculator_Library.Interfaces;
 
-namespace SunsetCalculator_Library.Concrete
+namespace CalculatorLibrary.Concrete
 {
-    public class ServiceSunsetCalculator : IServiceSunsetCalculator
+    public class Calculator : ICalculator
     {
-        private ISolarCalculator _service;
-        public ISolarCalculator Service
+        private IGetServices _service;
+        public IGetServices Service
         {
             get
             {
                 if (_service == null)
-                    _service = new SolarCalculator();
+                    _service = new GetServices();
                 return _service;
             }
             set { _service = value; }

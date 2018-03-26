@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace SunsetCalculator_Library.Interfaces
+namespace CalculatorLibrary.Interfaces
 {
-    public interface ISolarCalculator
+    public interface IGetServices
     {
         string GetServiceDate(DateTime date);
         string GetServiceQtdMovies(string value);

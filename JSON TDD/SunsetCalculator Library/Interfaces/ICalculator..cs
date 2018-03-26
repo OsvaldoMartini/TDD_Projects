@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace SunsetCalculator_Library.Interfaces
+namespace CalculatorLibrary.Interfaces
 {
-    public interface IServiceSunsetCalculator
+    public interface ICalculator
     {
         DateTime GetSunset(DateTime date);
         DateTime GetSunrise(DateTime date);

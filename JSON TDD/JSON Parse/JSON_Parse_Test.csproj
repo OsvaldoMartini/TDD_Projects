@@ -9,8 +9,8 @@
     <ProjectGuid>{77787462-02A8-4508-827E-6271C881CE81}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TDD_Case_1</RootNamespace>
-    <AssemblyName>TDD Case 1</AssemblyName>
+    <RootNamespace>JSON_Parse_Test</RootNamespace>
+    <AssemblyName>JSON_Parse_Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>71446f76</NuGetPackageImportStamp>
@@ -68,8 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JSON_Parse\ServiceSunsetCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="JSONServiceParseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -78,9 +78,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SunsetCalculator Library\SunsetCalculator Library.csproj">
-      <Project>{9AEAD546-771F-4113-AF28-A5BF973472FF}</Project>
-      <Name>SunsetCalculator Library</Name>
+    <ProjectReference Include="..\SunsetCalculator Library\CalculatorLibrary.csproj">
+      <Project>{f8e30deb-5f7c-4e3e-85eb-8dd24712e828}</Project>
+      <Name>CalculatorLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
