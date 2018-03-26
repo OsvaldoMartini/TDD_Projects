@@ -4,10 +4,10 @@ using DI.Abstraction.Models;
 using Moq;
 using NUnit.Framework;
 
-namespace TDD_Case_2.Mocking
+namespace Container_IoC_DI.Mocking
 {
     [TestFixture]
-    public class Mocking
+    public class MockingTests
     {
         [Test]
 

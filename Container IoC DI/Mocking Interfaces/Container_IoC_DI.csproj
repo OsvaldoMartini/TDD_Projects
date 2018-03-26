@@ -9,8 +9,8 @@
     <ProjectGuid>{F8DDA6E8-BC47-4CCC-9EEE-84E48E667209}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TDD_Case_2</RootNamespace>
-    <AssemblyName>TDD Case 2</AssemblyName>
+    <RootNamespace>Container_IoC_DI</RootNamespace>
+    <AssemblyName>Container_IoC_DI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>fb9355bf</NuGetPackageImportStamp>
@@ -63,17 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mocking\Mocking.cs" />
+    <Compile Include="Mocking\MockingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BillingProcess Library\DI.Abstraction\DI.Abstraction.csproj">
-      <Project>{925FB8E1-DA1D-4869-8866-008AB0A17044}</Project>
-      <Name>DI.Abstraction</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
