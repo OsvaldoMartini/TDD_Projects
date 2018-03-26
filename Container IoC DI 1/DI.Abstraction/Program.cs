@@ -23,7 +23,7 @@ namespace DI.Abstraction
 
             System.Diagnostics.Debug.WriteLine("Production");
             System.Diagnostics.Debug.WriteLine("");
-
+            //A Little coupled here (Newing Up classes), But we can consider this as Kick Start
             Commerce commerce = new Commerce(new BillingProcessor(), new Customer(), new Notifier(), new Logger());
             commerce.ProcessOrder(orderInfo);
 
