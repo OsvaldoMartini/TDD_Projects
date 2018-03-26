@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{582A6D
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON TDD", "JSON TDD", "{CD10F8CE-FAA8-43F4-8DA7-636A4810362F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON Parse Service", "JSON Parse Service", "{CD10F8CE-FAA8-43F4-8DA7-636A4810362F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Container IoC DI 1", "Container IoC DI 1", "{03A36313-A6B6-4997-9A4A-408E2042FC15}"
 EndProject
@@ -36,11 +36,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Container.IoC.Generic", "Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON.Parse.Test", "JSON.Parse.Test", "{3C99E5C9-FA16-454A-A6AC-1FECE888DFA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON.Parse.Test", "JSON TDD\JSON.Parse.Test\JSON.Parse.Test.csproj", "{77787462-02A8-4508-827E-6271C881CE81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON.Parse.Test", "JSON Parse Service\JSON.Parse.Test\JSON.Parse.Test.csproj", "{77787462-02A8-4508-827E-6271C881CE81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculator.Service", "Calculator.Service", "{02282727-543B-4D23-9377-AC65F76F7C92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Service", "JSON TDD\Calculator.Service\Calculator.Service.csproj", "{F8E30DEB-5F7C-4E3E-85EB-8DD24712E828}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Service", "JSON Parse Service\Calculator.Service\Calculator.Service.csproj", "{F8E30DEB-5F7C-4E3E-85EB-8DD24712E828}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
