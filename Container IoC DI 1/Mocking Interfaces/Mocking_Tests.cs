@@ -4,7 +4,7 @@ using DI.Abstraction.Models;
 using Moq;
 using NUnit.Framework;
 
-namespace Container.IoC.DI
+namespace Mocking.IoC.DI
 {
     [TestFixture]
     public class Mocking_Tests

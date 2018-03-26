@@ -1,8 +1,9 @@
 ﻿using System;
+using DI.PoorMainContainer.Interfaces;
 
-namespace DI.Coupled.Concrete
+namespace DI.PoorMainContainer.Concrete
 {
-    public class Logger
+    public class Logger:ILogger
     {
         public void Log(string message)
         {

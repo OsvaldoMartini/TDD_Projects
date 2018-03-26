@@ -1,7 +1,7 @@
 ﻿using System;
-using DI.Abstraction.Interfaces;
+using DI.PoorMainContainer.Interfaces;
 
-namespace DI.Abstraction.Concrete
+namespace DI.PoorMainContainer.Concrete
 {
     public class BillingProcessor : IBillingProcessor
     {

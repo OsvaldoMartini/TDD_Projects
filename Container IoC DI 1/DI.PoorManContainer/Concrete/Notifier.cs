@@ -1,9 +1,10 @@
 ﻿using System;
-using DI.Coupled.Models;
+using DI.PoorMainContainer.Interfaces;
+using DI.PoorMainContainer.Models;
 
-namespace DI.Coupled.Concrete
+namespace DI.PoorMainContainer.Concrete
 {
-    public class Notifier
+    public class Notifier:INotifier
     {
         //send email to customer with receipt
         public void SendReceipt(OrderInfo orderInfo)

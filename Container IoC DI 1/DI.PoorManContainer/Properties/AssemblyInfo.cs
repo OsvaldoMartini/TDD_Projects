@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mocking.IoC.DI")]
+[assembly: AssemblyTitle("DI.PoorMainContainer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mocking.IoC.DI")]
+[assembly: AssemblyProduct("DI.PoorMainContainer")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a48a1d89-984e-4196-8df4-2e7bf65f3998")]
+[assembly: Guid("311a3053-13ab-4462-9dca-e3fe26dc3751")]
 
 // Version information for an assembly consists of the following four values:
 //

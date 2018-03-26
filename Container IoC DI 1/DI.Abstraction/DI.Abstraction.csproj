@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{925FB8E1-DA1D-4869-8866-008AB0A17044}</ProjectGuid>
+    <ProjectGuid>{3B1141A1-2FF5-48CD-8956-A1E893CBCA5D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DI.Abstraction</RootNamespace>

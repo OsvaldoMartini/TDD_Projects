@@ -1,8 +1,9 @@
 ﻿using System;
+using DI.PoorMainContainer.Interfaces;
 
-namespace DI.Coupled.Concrete
+namespace DI.PoorMainContainer.Concrete
 {
-    public class Customer
+    public class Customer:ICustomer
     {
         public void UpdateCustomerOrder(string customer, string product)
         {

@@ -9,8 +9,8 @@ namespace DI.Abstraction
     {
         static void Main(string[] args)
         {
-            System.Diagnostics.Debug.WriteLine("Abstraction Example");
-            System.Diagnostics.Debug.WriteLine("");
+            Console.WriteLine("Abstraction Example");
+            Console.WriteLine("");
 
             OrderInfo orderInfo = new OrderInfo()
             {
@@ -21,15 +21,16 @@ namespace DI.Abstraction
                 CreditCard = "1234.5678.9876.5432"
             };
 
-            System.Diagnostics.Debug.WriteLine("Production");
-            System.Diagnostics.Debug.WriteLine("");
-            //A Little coupled here (Newing Up classes), But we can consider this as Kick Start
+            Console.WriteLine("Production");
+            Console.WriteLine("");
+
+            //A Little coupled here (Newing Up classes), But we can consider this as Kick Start 
             Commerce commerce = new Commerce(new BillingProcessor(), new Customer(), new Notifier(), new Logger());
             commerce.ProcessOrder(orderInfo);
 
             Console.WriteLine("");
             Console.WriteLine("Press [Enter] to exit...");
-            Console.WriteLine("");
+            Console.ReadLine();
 
 
         }
