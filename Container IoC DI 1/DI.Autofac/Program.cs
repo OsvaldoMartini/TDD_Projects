@@ -7,9 +7,9 @@ using DI.Autofac.Models;
 
 namespace DI.Autofac
 {
-    class Program
+    public class Program
     {
-        private static IContainer _container;
+        public static IContainer _container;
 
         static void Main(string[] args)
         {
@@ -57,11 +57,12 @@ namespace DI.Autofac
                     {
                         case "1":
                             //regular contgainer usage (Commerce1)
+
                             builder.RegisterType<Commerce1>();
-                            builder.RegisterType<IBillingProcessor>().As<BillingProcessor>();
-                            builder.RegisterType<ICustomer>().As<Customer>();
-                            builder.RegisterType<INotifier>().As<Notifier>();
-                            builder.RegisterType<ILogger>().As<Logger>();
+                            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+                            builder.RegisterType<Customer>().As<ICustomer>();
+                            builder.RegisterType<Notifier>().As<INotifier>();
+                            builder.RegisterType<Logger>().As<ILogger>();
 
                             _container = builder.Build();
 
@@ -71,11 +72,12 @@ namespace DI.Autofac
                             break;
                         case "2":
                             //specific service locator (Commerce2)
-                            builder.RegisterType<Commerce1>();
-                            builder.RegisterType<IBillingProcessor>().As<BillingProcessor>();
-                            builder.RegisterType<ICustomer>().As<Customer>();
-                            builder.RegisterType<INotifier>().As<Notifier>();
-                            builder.RegisterType<ILogger>().As<Logger>();
+                            builder.RegisterType<Commerce2>();
+                            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+                            builder.RegisterType<Customer>().As<ICustomer>();
+                            builder.RegisterType<Notifier>().As<INotifier>();
+                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<BillingProcessorLocator>().As<IBillingProcessorLocator>();
 
                             _container = builder.Build();
 
@@ -83,6 +85,22 @@ namespace DI.Autofac
 
                             commerce2.ProcessOrder(orderInfo);
                             break;
+                        case "3":
+                            //genreal service locator (Commerce3)
+                            builder.RegisterType<Commerce3>();
+                            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+                            builder.RegisterType<Customer>().As<ICustomer>();
+                            builder.RegisterType<Notifier>().As<INotifier>();
+                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<ProcessorLocator>().As<IProcessorLocator>();
+
+                            _container = builder.Build();
+
+                            Commerce3 commerce3 = _container.Resolve<Commerce3>();
+
+                            commerce3.ProcessOrder(orderInfo);
+                            break;
+
                         default:
                             break;
 

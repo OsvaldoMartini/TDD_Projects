@@ -1,7 +1,8 @@
-﻿using System;
-using DI.Autofac.Abstraction;
+﻿using Autofac;
+using DI.Autofac.BusinessObjects;
 using DI.Autofac.Concrete;
 using DI.Autofac.Interfaces;
+using DI.Autofac.Models;
 using NUnit.Framework;
 
 namespace DI.Autofac.Tests
@@ -9,12 +10,13 @@ namespace DI.Autofac.Tests
     [TestFixture]
     class Test_Autofac_Containers
     {
-        //private Autofac SomeContainer;
+        public static IContainer _container;
+        public ContainerBuilder builder;
 
         [SetUp]
         public void Init()
         {
-            //_container = new Autofac();
+            builder = new ContainerBuilder();
         }
 
         //If  I not get "InvalidOperationException" the Test should  fail
@@ -72,6 +74,34 @@ namespace DI.Autofac.Tests
             //Assert.IsTrue(instance.GetType() == typeof(Notifier));
 
 
+        }
+
+        [Test]
+        public void Should_Resolve_Commerce1()
+        {
+            //Arrange
+            OrderInfo orderInfo = new OrderInfo()
+            {
+                CustomerName = "Claudia Almeida",
+                Email = "claudiabhz@gmail.com",
+                Product = "LCD Monitor Smart Samsung",
+                Price = 259.00f,
+                CreditCard = "1234.5678.9876.5432"
+            };
+
+            builder.RegisterType<Commerce1>();
+            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+            builder.RegisterType<Customer>().As<ICustomer>();
+            builder.RegisterType<Notifier>().As<INotifier>();
+            builder.RegisterType<Logger>().As<ILogger>();
+
+            _container = builder.Build();
+
+            Commerce1 commerce1 = _container.Resolve<Commerce1>();
+
+            //Assert
+            Assert.IsNotNull(commerce1);
+            Assert.IsTrue(commerce1.GetType() == typeof(Commerce1));
         }
     }
 }

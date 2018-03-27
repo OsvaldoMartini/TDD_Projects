@@ -60,11 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstraction\AbstractBillingProcessor.cs" />
+    <Compile Include="BusinessObjects\Commerce3.cs" />
+    <Compile Include="Concrete\BillingProcessorLocator.cs" />
     <Compile Include="BusinessObjects\Commerce.cs" />
     <Compile Include="BusinessObjects\Commerce1.cs" />
     <Compile Include="BusinessObjects\Commerce2.cs" />
     <Compile Include="Concrete\BillingProcessor.cs" />
     <Compile Include="Concrete\Customer.cs" />
+    <Compile Include="Interfaces\IProcessorLocator.cs" />
+    <Compile Include="Concrete\ProcessorLocator.cs" />
+    <Compile Include="Interfaces\IBillingProcessorLocator.cs" />
     <Compile Include="Concrete\Logger.cs" />
     <Compile Include="Concrete\Notifier.cs" />
     <Compile Include="Interfaces\IBillingProcessor.cs" />
