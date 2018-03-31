@@ -2,5 +2,6 @@
 {
     public interface IPostOrderPlugin
     {
+        void DoSomething();
     }
 }

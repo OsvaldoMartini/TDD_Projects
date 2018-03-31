@@ -29,6 +29,13 @@ namespace DI.Autofac.BusinessObjects
             loggerProcessor.Log("Customer Updated");
             notifierProcessor.SendReceipt(orderInfo);
             loggerProcessor.Log("Receipt Sent");
+
+            foreach (IPostOrderPlugin plugin in _Plugins)
+            {
+                plugin.DoSomething();
+                
+            }
+
         }
 
     }

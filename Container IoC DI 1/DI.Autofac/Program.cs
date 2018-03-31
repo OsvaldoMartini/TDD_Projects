@@ -185,6 +185,22 @@ namespace DI.Autofac
                         case "7":
                             Console.WriteLine("7 - One-to-many");
                             Console.WriteLine();
+                            // one-to-many
+                            builder.RegisterType<Commerce7>();
+                            builder.RegisterType<BillingProcessSuffixID>().As<IBillingProcessSuffixID>();
+                            builder.RegisterType<CustomerSuffixID>().As<ICustomerSuffixID>();
+                            builder.RegisterType<NotifierSuffixID>().As<INotifierSuffixID>();
+                            builder.RegisterType<LoggerSuffixID>().As<ILoggerSuffixID>();
+                            builder.RegisterType<ProcessorLocatorGeneric>().As<IProcessorLocatorGeneric>();
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t=>t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
+
+                            _container = builder.Build();
+                            
+                            Commerce7 commerce7 = _container.Resolve<Commerce7>();
+
+                            commerce7.ProcessOrder(orderInfo);
+
+
                             break;
                         case "8":
                             Console.WriteLine("8 - Post Construction resolve & Property injection");
