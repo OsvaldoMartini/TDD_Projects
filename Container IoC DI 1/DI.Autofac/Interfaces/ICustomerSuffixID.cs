@@ -1,6 +1,6 @@
 ﻿namespace DI.Autofac.Interfaces
 {
-    public interface ICustomerSufixoID
+    public interface ICustomerSuffixID
     {
         void UpdateCustomerOrder(string customer, string product);
     }

@@ -2,7 +2,7 @@
 
 namespace DI.Autofac.Interfaces
 {
-    public interface INotifierSufixoID
+    public interface INotifierSuffixID
     {
         void SendReceipt(OrderInfo orderInfo);
     }

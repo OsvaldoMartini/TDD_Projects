@@ -2,9 +2,9 @@
 
 namespace DI.Autofac.Concrete
 {
-    public class ProcessorLocator: IProcessorLocator
+    public class ProcessorLocatorGeneric: IProcessorLocatorGeneric
     {
-        T IProcessorLocator.GetProcessor<T>()
+        T IProcessorLocatorGeneric.GetProcessor<T>()
         {
             return Program._container.Resolve<T>();
         }

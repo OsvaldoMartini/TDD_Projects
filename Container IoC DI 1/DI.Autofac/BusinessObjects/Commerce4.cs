@@ -5,21 +5,21 @@ namespace DI.Autofac.BusinessObjects
 {
     public class Commerce4
     {
-            private IProcessorLocator2 _processorLocator2;
+            private IProcessorLocatorScope _processorLocatorScope;
             private ISingleTest _singleTester;
 
-            public Commerce4(IProcessorLocator2 processorLocator2, ISingleTest singleTester)
+            public Commerce4(IProcessorLocatorScope processorLocatorScope, ISingleTest singleTester)
             {
-                _processorLocator2 = processorLocator2;
+                _processorLocatorScope = processorLocatorScope;
                 _singleTester = singleTester;
             }
 
             public void ProcessOrder(OrderInfo orderInfo)
             {
-                IBillingProcessSufixoID billingProcessor = _processorLocator2.GetProcessor<IBillingProcessSufixoID>();
-                ICustomerSufixoID customerProcessor = _processorLocator2.GetProcessor<ICustomerSufixoID>();
-                INotifierSufixoID notifierProcessor = _processorLocator2.GetProcessor<INotifierSufixoID>();
-                ILoggerSufixoID loggerProcessor = _processorLocator2.GetProcessor<ILoggerSufixoID>();
+                IBillingProcessSuffixID billingProcessor = _processorLocatorScope.GetProcessor<IBillingProcessSuffixID>();
+                ICustomerSuffixID customerProcessor = _processorLocatorScope.GetProcessor<ICustomerSuffixID>();
+                INotifierSuffixID notifierProcessor = _processorLocatorScope.GetProcessor<INotifierSuffixID>();
+                ILoggerSuffixID loggerProcessor = _processorLocatorScope.GetProcessor<ILoggerSuffixID>();
 
                 billingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
                 loggerProcessor.Log("Billing Processed");
@@ -30,7 +30,7 @@ namespace DI.Autofac.BusinessObjects
 
                 _singleTester.DisplayCounter();
 
-                _processorLocator2.ReleaseScope();
+                _processorLocatorScope.ReleaseScope();
             }
 
         }

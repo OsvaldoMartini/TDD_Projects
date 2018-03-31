@@ -3,7 +3,7 @@ using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Concrete
 {
-    public class BillingProcessSufixoID : IBillingProcessSufixoID
+    public class BillingProcessSuffixID : IBillingProcessSuffixID
     {
         public void ProcessPayment(string customer, string creditCard, double price)
         {

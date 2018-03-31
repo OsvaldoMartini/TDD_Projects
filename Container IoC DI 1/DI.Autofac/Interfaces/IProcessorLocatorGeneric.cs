@@ -1,7 +1,7 @@
 ﻿
 namespace DI.Autofac.Concrete
 {
-    public interface IProcessorLocator
+    public interface IProcessorLocatorGeneric
     {
         T GetProcessor<T>();
 

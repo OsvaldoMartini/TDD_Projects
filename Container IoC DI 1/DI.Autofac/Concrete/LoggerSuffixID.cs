@@ -3,7 +3,7 @@ using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Concrete
 {
-    public class LoggerSufixoID:ILoggerSufixoID
+    public class LoggerSuffixID:ILoggerSuffixID
     {
         public void Log(string message)
         {

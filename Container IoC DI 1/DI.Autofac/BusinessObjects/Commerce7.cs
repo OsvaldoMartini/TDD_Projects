@@ -1,30 +1,35 @@
-﻿using DI.Autofac.Interfaces;
+﻿using System.Collections.Generic;
+using DI.Autofac.Concrete;
+using DI.Autofac.Interfaces;
 using DI.Autofac.Models;
 
 namespace DI.Autofac.BusinessObjects
 {
     public class Commerce7
     {
-        //private IProcessLocator _ProcessorLocator;
-        //private IEnumerable<IPosterOrderPlugin> _Plugins;
+        private IProcessorLocatorGeneric _ProcessorLocatorGeneric;
+        private IEnumerable<IPostOrderPlugin> _Plugins;
 
-        //public Commerce7(IProcessLocator processorLocator, IEnumerable<IPosterOrderPlugin> plugins)
-        //{
-        //    _ProcessorLocator = processorLocator;
-        //    _Plugins= plugins;
-        //}
+        public Commerce7(IProcessorLocatorGeneric processorLocatorGeneric, IEnumerable<IPostOrderPlugin> plugins)
+        {
+            _ProcessorLocatorGeneric = processorLocatorGeneric;
+            _Plugins = plugins;
+        }
 
-        //public void ProcessOrder(OrderInfo orderInfo)
-        //{
-        //    IBillingProcessSufixoID billingProcessor = _BillingProcessorLocator.GetBillingProcessor();
+        public void ProcessOrder(OrderInfo orderInfo)
+        {
+            IBillingProcessSuffixID billingProcessor = _ProcessorLocatorGeneric.GetProcessor<IBillingProcessSuffixID>();
+            ICustomerSuffixID customerProcessor = _ProcessorLocatorGeneric.GetProcessor<ICustomerSuffixID>();
+            INotifierSuffixID notifierProcessor = _ProcessorLocatorGeneric.GetProcessor<INotifierSuffixID>();
+            ILoggerSuffixID loggerProcessor = _ProcessorLocatorGeneric.GetProcessor<ILoggerSuffixID>();
 
-        //    billingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
-        //    _Logger.Log("Billing Processed");
-        //    _Customer.UpdateCustomerOrder(orderInfo.CustomerName, orderInfo.Product);
-        //    _Logger.Log("Customer Updated");
-        //    _Notifier.SendReceipt(orderInfo);
-        //    _Logger.Log("Receipt Sent");
-        //}
+            billingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
+            loggerProcessor.Log("Billing Processed");
+            customerProcessor.UpdateCustomerOrder(orderInfo.CustomerName, orderInfo.Product);
+            loggerProcessor.Log("Customer Updated");
+            notifierProcessor.SendReceipt(orderInfo);
+            loggerProcessor.Log("Receipt Sent");
+        }
 
     }
 }

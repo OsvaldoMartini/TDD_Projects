@@ -1,6 +1,6 @@
 ﻿namespace DI.Autofac.Interfaces
 {
-    public interface IProcessorLocator2
+    public interface IProcessorLocatorScope
     {
         T GetProcessor<T>();
 
