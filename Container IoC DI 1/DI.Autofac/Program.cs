@@ -58,15 +58,15 @@ namespace DI.Autofac
                     switch (choice)
                     {
                         case "1":
-                            //regular contgainer usage (Commerce1)
+                            //regular container usage (Commerce1)
                             Console.WriteLine("1 - Regular DI Usage");
                             Console.WriteLine();
                             
                             builder.RegisterType<Commerce1>();
-                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
-                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
-                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
-                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
+                            builder.RegisterType<BillingProcessSufixoID>().As<IBillingProcessSufixoID>();
+                            builder.RegisterType<CustomerSufixoID>().As<ICustomerSufixoID>();
+                            builder.RegisterType<NotifierSufixoID>().As<INotifierSufixoID>();
+                            builder.RegisterType<LoggerSufixoID>().As<ILoggerSufixoID>();
 
                             _container = builder.Build();
 
@@ -80,10 +80,10 @@ namespace DI.Autofac
                             Console.WriteLine();
 
                             builder.RegisterType<Commerce2>();
-                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
-                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
-                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
-                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
+                            builder.RegisterType<BillingProcessSufixoID>().As<IBillingProcessSufixoID>();
+                            builder.RegisterType<CustomerSufixoID>().As<ICustomerSufixoID>();
+                            builder.RegisterType<NotifierSufixoID>().As<INotifierSufixoID>();
+                            builder.RegisterType<LoggerSufixoID>().As<ILoggerSufixoID>();
                             builder.RegisterType<BillingProcessorLocator>().As<IBillingProcessLocator>();
 
                             _container = builder.Build();
@@ -98,10 +98,10 @@ namespace DI.Autofac
                             Console.WriteLine();
                             
                             builder.RegisterType<Commerce3>();
-                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
-                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
-                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
-                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
+                            builder.RegisterType<BillingProcessSufixoID>().As<IBillingProcessSufixoID>();
+                            builder.RegisterType<CustomerSufixoID>().As<ICustomerSufixoID>();
+                            builder.RegisterType<NotifierSufixoID>().As<INotifierSufixoID>();
+                            builder.RegisterType<LoggerSufixoID>().As<ILoggerSufixoID>();
                             builder.RegisterType<ProcessorLocator>().As<IProcessorLocator>();
 
                             _container = builder.Build();
@@ -116,10 +116,10 @@ namespace DI.Autofac
                             Console.WriteLine();
                             
                             builder.RegisterType<Commerce4>();
-                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
-                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
-                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
-                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
+                            builder.RegisterType<BillingProcessSufixoID>().As<IBillingProcessSufixoID>();
+                            builder.RegisterType<CustomerSufixoID>().As<ICustomerSufixoID>();
+                            builder.RegisterType<NotifierSufixoID>().As<INotifierSufixoID>();
+                            builder.RegisterType<LoggerSufixoID>().As<ILoggerSufixoID>();
                             builder.RegisterType<ProcessorLocator2>().As<IProcessorLocator2>();
                             builder.RegisterType<SingleTest>().As<ISingleTest>().SingleInstance();
 
@@ -158,7 +158,7 @@ namespace DI.Autofac
 
                             builder.RegisterType<Commerce5>();
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                                .Where(t => t.Name.EndsWith("_Scanned")).As(t =>
+                                .Where(t => t.Name.EndsWith("SufixoID")).As(t =>
                                     t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
 
                             _container = builder.Build();

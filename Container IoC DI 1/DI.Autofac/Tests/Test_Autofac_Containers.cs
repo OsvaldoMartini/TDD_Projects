@@ -90,10 +90,10 @@ namespace DI.Autofac.Tests
             };
 
             builder.RegisterType<Commerce1>();
-            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
-            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
-            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
-            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
+            builder.RegisterType<BillingProcessSufixoID>().As<IBillingProcessSufixoID>();
+            builder.RegisterType<CustomerSufixoID>().As<ICustomerSufixoID>();
+            builder.RegisterType<NotifierSufixoID>().As<INotifierSufixoID>();
+            builder.RegisterType<LoggerSufixoID>().As<ILoggerSufixoID>();
 
             _container = builder.Build();
 

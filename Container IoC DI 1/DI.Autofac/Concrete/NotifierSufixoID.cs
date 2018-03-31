@@ -4,7 +4,7 @@ using DI.Autofac.Models;
 
 namespace DI.Autofac.Concrete
 {
-    public class Notifier_Scanned:INotifier_Scanned
+    public class NotifierSufixoID:INotifierSufixoID
     {
         //send email to customer with receipt
         public void SendReceipt(OrderInfo orderInfo)

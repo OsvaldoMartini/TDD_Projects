@@ -6,11 +6,11 @@ namespace DI.Autofac.BusinessObjects
     public class Commerce2
     {
         private IBillingProcessLocator _BillingProcessorLocator;
-        private ICustomer_Scanned _Customer;
-        private INotifier_Scanned _Notifier;
-        private ILogger_Scanned _Logger;
+        private ICustomerSufixoID _Customer;
+        private INotifierSufixoID _Notifier;
+        private ILoggerSufixoID _Logger;
 
-        public Commerce2(IBillingProcessLocator billingProcessorLocator, ICustomer_Scanned customer, INotifier_Scanned notifier, ILogger_Scanned logger)
+        public Commerce2(IBillingProcessLocator billingProcessorLocator, ICustomerSufixoID customer, INotifierSufixoID notifier, ILoggerSufixoID logger)
         {
             _BillingProcessorLocator = billingProcessorLocator;
             _Customer = customer;
@@ -20,7 +20,7 @@ namespace DI.Autofac.BusinessObjects
 
         public void ProcessOrder(OrderInfo orderInfo)
         {
-            IBillingProcess_Scanned billingProcessor = _BillingProcessorLocator.GetBillingProcessor();
+            IBillingProcessSufixoID billingProcessor = _BillingProcessorLocator.GetBillingProcessor();
 
             billingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
             _Logger.Log("Billing Processed");

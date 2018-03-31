@@ -1,6 +1,6 @@
 ﻿namespace DI.Autofac.Interfaces
 {
-    public interface ILogger_Scanned
+    public interface ILoggerSufixoID
     {
         void Log(string message);
     }

@@ -5,12 +5,12 @@ namespace DI.Autofac.BusinessObjects
 {
     public class Commerce5
     {
-        private IBillingProcess_Scanned _BillingProcessor;
-        private ICustomer_Scanned _Customer;
-        private INotifier_Scanned _Notifier;
-        private ILogger_Scanned _Logger;
+        private IBillingProcessSufixoID _BillingProcessor;
+        private ICustomerSufixoID _Customer;
+        private INotifierSufixoID _Notifier;
+        private ILoggerSufixoID _Logger;
 
-        public Commerce5(IBillingProcess_Scanned billingProcessor, ICustomer_Scanned customer, INotifier_Scanned notifier, ILogger_Scanned logger)
+        public Commerce5(IBillingProcessSufixoID billingProcessor, ICustomerSufixoID customer, INotifierSufixoID notifier, ILoggerSufixoID logger)
 
         {
             _BillingProcessor = billingProcessor;
