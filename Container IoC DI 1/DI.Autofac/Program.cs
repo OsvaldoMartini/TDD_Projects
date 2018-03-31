@@ -189,7 +189,8 @@ namespace DI.Autofac
                         case "8":
                             Console.WriteLine("8 - Post Construction resolve & Property injection");
                             Console.WriteLine();
-                            break:
+                            break;
+
                         case "9":
                             Console.WriteLine("9 - Construction finder");
                             Console.WriteLine();
