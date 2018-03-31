@@ -3,7 +3,7 @@ using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Concrete
 {
-    public class Customer:ICustomer
+    public class Customer_Scanned:ICustomer_Scanned
     {
         public void UpdateCustomerOrder(string customer, string product)
         {

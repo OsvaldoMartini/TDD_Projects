@@ -3,15 +3,14 @@ using DI.Autofac.Models;
 
 namespace DI.Autofac.BusinessObjects
 {
-    public class Commerce5
+    public class Commerce6
     {
         private IBillingProcess_Scanned _BillingProcessor;
         private ICustomer_Scanned _Customer;
         private INotifier_Scanned _Notifier;
         private ILogger_Scanned _Logger;
 
-        public Commerce5(IBillingProcess_Scanned billingProcessor, ICustomer_Scanned customer, INotifier_Scanned notifier, ILogger_Scanned logger)
-
+        public Commerce6(IBillingProcess_Scanned billingProcessor, ICustomer_Scanned customer, INotifier_Scanned notifier, ILogger_Scanned logger)
         {
             _BillingProcessor = billingProcessor;
             _Customer = customer;

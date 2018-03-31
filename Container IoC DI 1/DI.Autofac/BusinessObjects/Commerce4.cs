@@ -16,10 +16,10 @@ namespace DI.Autofac.BusinessObjects
 
             public void ProcessOrder(OrderInfo orderInfo)
             {
-                IBillingProcess billingProcessor = _processorLocator2.GetProcessor<IBillingProcess>();
-                ICustomer customerProcessor = _processorLocator2.GetProcessor<ICustomer>();
-                INotifier notifierProcessor = _processorLocator2.GetProcessor<INotifier>();
-                ILogger loggerProcessor = _processorLocator2.GetProcessor<ILogger>();
+                IBillingProcess_Scanned billingProcessor = _processorLocator2.GetProcessor<IBillingProcess_Scanned>();
+                ICustomer_Scanned customerProcessor = _processorLocator2.GetProcessor<ICustomer_Scanned>();
+                INotifier_Scanned notifierProcessor = _processorLocator2.GetProcessor<INotifier_Scanned>();
+                ILogger_Scanned loggerProcessor = _processorLocator2.GetProcessor<ILogger_Scanned>();
 
                 billingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
                 loggerProcessor.Log("Billing Processed");

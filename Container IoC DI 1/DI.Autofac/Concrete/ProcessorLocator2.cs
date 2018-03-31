@@ -1,5 +1,4 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Concrete

@@ -61,10 +61,10 @@ namespace DI.Autofac
                             //regular contgainer usage (Commerce1)
 
                             builder.RegisterType<Commerce1>();
-                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
-                            builder.RegisterType<Customer>().As<ICustomer>();
-                            builder.RegisterType<Notifier>().As<INotifier>();
-                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
+                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
+                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
+                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
 
                             _container = builder.Build();
 
@@ -75,10 +75,10 @@ namespace DI.Autofac
                         case "2":
                             //specific service locator (Commerce2)
                             builder.RegisterType<Commerce2>();
-                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
-                            builder.RegisterType<Customer>().As<ICustomer>();
-                            builder.RegisterType<Notifier>().As<INotifier>();
-                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
+                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
+                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
+                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
                             builder.RegisterType<BillingProcessorLocator>().As<IBillingProcessLocator>();
 
                             _container = builder.Build();
@@ -90,10 +90,10 @@ namespace DI.Autofac
                         case "3":
                             //general service locator (Commerce3)
                             builder.RegisterType<Commerce3>();
-                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
-                            builder.RegisterType<Customer>().As<ICustomer>();
-                            builder.RegisterType<Notifier>().As<INotifier>();
-                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
+                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
+                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
+                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
                             builder.RegisterType<ProcessorLocator>().As<IProcessorLocator>();
 
                             _container = builder.Build();
@@ -105,20 +105,20 @@ namespace DI.Autofac
                         case "4":
                             //lifetime scope & singleton (Commerce4)
                             builder.RegisterType<Commerce4>();
-                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
-                            builder.RegisterType<Customer>().As<ICustomer>();
-                            builder.RegisterType<Notifier>().As<INotifier>();
-                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
+                            builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
+                            builder.RegisterType<Notifier_Scanned>().As<INotifier_Scanned>();
+                            builder.RegisterType<Logger_Scanned>().As<ILogger_Scanned>();
                             builder.RegisterType<ProcessorLocator2>().As<IProcessorLocator2>();
                             builder.RegisterType<SingleTest>().As<ISingleTest>().SingleInstance();
 
                             _container = builder.Build();
 
                             //Sample lifetame scope resolving
-                            //using (ILifetimeScope scope = _container.BeginLifetimeScope())
-                            //{
-                            //    Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
-                            //}
+                                //using (ILifetimeScope scope = _container.BeginLifetimeScope())
+                                //{
+                                //    Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
+                                //}
                             //if dependencies were "Disposable", they would now be disposable and released
                             //without lifetime scope the container would hold on to  disposable components
 
@@ -144,7 +144,7 @@ namespace DI.Autofac
                             //assembly scanning (Commerce5)
                             builder.RegisterType<Commerce5>();
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                                .Where(t => t.Name.EndsWith("Processor")).As(t =>
+                                .Where(t => t.Name.EndsWith("_Scanned")).As(t =>
                                     t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
 
                             _container = builder.Build();
@@ -153,6 +153,19 @@ namespace DI.Autofac
                             commerce5.ProcessOrder(orderInfo);
                             
                             break;
+
+                        case "6":
+                            //module usage (Commerce6)
+                            builder.RegisterType<Commerce6>();
+                            builder.RegisterModule<ProcessorRegistrationModule>();
+                          
+                            _container = builder.Build();
+                            Commerce6 commerce6 = _container.Resolve<Commerce6>();
+
+                            commerce6.ProcessOrder(orderInfo);
+
+                            break;
+
 
                         default:
                             break;

@@ -1,4 +1,5 @@
-﻿namespace DI.Autofac.Concrete
+﻿
+namespace DI.Autofac.Concrete
 {
     public interface IProcessorLocator
     {

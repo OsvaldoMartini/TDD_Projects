@@ -5,9 +5,9 @@ namespace DI.Autofac.Concrete
 {
     public class BillingProcessorLocator : IBillingProcessLocator
     {
-        IBillingProcess IBillingProcessLocator.GetBillingProcessor()
+        IBillingProcess_Scanned IBillingProcessLocator.GetBillingProcessor()
         {
-            return Program._container.Resolve<IBillingProcess>();
+            return Program._container.Resolve<IBillingProcess_Scanned>();
         }
     }
 }

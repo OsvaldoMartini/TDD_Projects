@@ -3,7 +3,7 @@ using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Abstraction
 {
-    public abstract class AbstractBillingProcessor : IBillingProcess
+    public abstract class AbstractBillingProcessor : IBillingProcess_Scanned
     {
         public void ProcessPayment(string customer, string creditCard, double price)
         {

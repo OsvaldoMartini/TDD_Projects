@@ -3,7 +3,7 @@ using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Concrete
 {
-    public class Logger:ILogger
+    public class Logger_Scanned:ILogger_Scanned
     {
         public void Log(string message)
         {

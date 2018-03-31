@@ -2,6 +2,6 @@
 {
     public interface IBillingProcessLocator
     {
-        IBillingProcess GetBillingProcessor();
+        IBillingProcess_Scanned GetBillingProcessor();
     }
 }
