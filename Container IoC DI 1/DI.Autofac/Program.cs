@@ -59,7 +59,9 @@ namespace DI.Autofac
                     {
                         case "1":
                             //regular contgainer usage (Commerce1)
-
+                            Console.WriteLine("1 - Regular DI Usage");
+                            Console.WriteLine();
+                            
                             builder.RegisterType<Commerce1>();
                             builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
                             builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
@@ -74,6 +76,9 @@ namespace DI.Autofac
                             break;
                         case "2":
                             //specific service locator (Commerce2)
+                            Console.WriteLine("2 - Specify service locator");
+                            Console.WriteLine();
+
                             builder.RegisterType<Commerce2>();
                             builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
                             builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
@@ -89,6 +94,9 @@ namespace DI.Autofac
                             break;
                         case "3":
                             //general service locator (Commerce3)
+                            Console.WriteLine("3 - General service locator");
+                            Console.WriteLine();
+                            
                             builder.RegisterType<Commerce3>();
                             builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
                             builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
@@ -104,6 +112,9 @@ namespace DI.Autofac
                             break;
                         case "4":
                             //lifetime scope & singleton (Commerce4)
+                            Console.WriteLine("4 - Lifetime scope");
+                            Console.WriteLine();
+                            
                             builder.RegisterType<Commerce4>();
                             builder.RegisterType<BillingProcess_Scanned>().As<IBillingProcess_Scanned>();
                             builder.RegisterType<Customer_Scanned>().As<ICustomer_Scanned>();
@@ -142,6 +153,9 @@ namespace DI.Autofac
                             break;
                         case "5":
                             //assembly scanning (Commerce5)
+                            Console.WriteLine("5 - Assembly scanning");
+                            Console.WriteLine();
+
                             builder.RegisterType<Commerce5>();
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                                 .Where(t => t.Name.EndsWith("_Scanned")).As(t =>
@@ -156,6 +170,8 @@ namespace DI.Autofac
 
                         case "6":
                             //module usage (Commerce6)
+                            Console.WriteLine("6 - Module Usage");
+                            Console.WriteLine();
                             builder.RegisterType<Commerce6>();
                             builder.RegisterModule<ProcessorRegistrationModule>();
                           
@@ -166,8 +182,21 @@ namespace DI.Autofac
 
                             break;
 
-
+                        case "7":
+                            Console.WriteLine("7 - One-to-many");
+                            Console.WriteLine();
+                            break;
+                        case "8":
+                            Console.WriteLine("8 - Post Construction resolve & Property injection");
+                            Console.WriteLine();
+                            break:
+                        case "9":
+                            Console.WriteLine("9 - Construction finder");
+                            Console.WriteLine();
+                            break;
+                        
                         default:
+
                             break;
 
                     }
