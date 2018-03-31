@@ -115,10 +115,10 @@ namespace DI.Autofac
                             _container = builder.Build();
 
                             //Sample lifetame scope resolving
-                            using (ILifetimeScope scope = _container.BeginLifetimeScope())
-                            {
-                                Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
-                            }
+                            //using (ILifetimeScope scope = _container.BeginLifetimeScope())
+                            //{
+                            //    Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
+                            //}
                             //if dependencies were "Disposable", they would now be disposable and released
                             //without lifetime scope the container would hold on to  disposable components
 
@@ -131,6 +131,14 @@ namespace DI.Autofac
 
                             commerce4 = _container.Resolve<Commerce4>();
                             commerce4.ProcessOrder(orderInfo);
+                            
+                            Console.WriteLine("Press 'Enter' to process again...");
+                            Console.ReadLine();
+ 
+                            commerce4 = _container.Resolve<Commerce4>();
+                            commerce4.ProcessOrder(orderInfo);
+
+
                             break;
                         case "5":
                             //assembly scanning (Commerce5)
