@@ -65,6 +65,7 @@
     <Compile Include="BusinessObjects\Commerce5.cs" />
     <Compile Include="BusinessObjects\Commerce6.cs" />
     <Compile Include="BusinessObjects\Commerce7.cs" />
+    <Compile Include="BusinessObjects\Commerce8.cs" />
     <Compile Include="Concrete\BillingProcessorLocator.cs" />
     <Compile Include="BusinessObjects\Commerce.cs" />
     <Compile Include="BusinessObjects\Commerce1.cs" />

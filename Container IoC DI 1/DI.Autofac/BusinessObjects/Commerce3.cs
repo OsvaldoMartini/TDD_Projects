@@ -6,19 +6,19 @@ namespace DI.Autofac.BusinessObjects
 {
     public class Commerce3
     {
-        private IProcessorLocatorGeneric _ProcessorLocatorGeneric;
+        private IProcessorLocatorGeneric _processorLocatorGeneric;
 
         public Commerce3(IProcessorLocatorGeneric processorLocatorGeneric)
         {
-            _ProcessorLocatorGeneric = processorLocatorGeneric;
+            _processorLocatorGeneric = processorLocatorGeneric;
         }
 
         public void ProcessOrder(OrderInfo orderInfo)
         {
-            IBillingProcessSuffixID billingProcessor = _ProcessorLocatorGeneric.GetProcessor<IBillingProcessSuffixID>();
-            ICustomerSuffixID customerProcessor = _ProcessorLocatorGeneric.GetProcessor<ICustomerSuffixID>();
-            INotifierSuffixID notifierProcessor = _ProcessorLocatorGeneric.GetProcessor<INotifierSuffixID>();
-            ILoggerSuffixID loggerProcessor = _ProcessorLocatorGeneric.GetProcessor<ILoggerSuffixID>();
+            IBillingProcessSuffixID billingProcessor = _processorLocatorGeneric.GetProcessor<IBillingProcessSuffixID>();
+            ICustomerSuffixID customerProcessor = _processorLocatorGeneric.GetProcessor<ICustomerSuffixID>();
+            INotifierSuffixID notifierProcessor = _processorLocatorGeneric.GetProcessor<INotifierSuffixID>();
+            ILoggerSuffixID loggerProcessor = _processorLocatorGeneric.GetProcessor<ILoggerSuffixID>();
 
             billingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
             loggerProcessor.Log("Billing Processed");

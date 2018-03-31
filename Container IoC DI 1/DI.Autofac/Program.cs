@@ -200,11 +200,29 @@ namespace DI.Autofac
 
                             commerce7.ProcessOrder(orderInfo);
 
-
                             break;
                         case "8":
+                            // post-construction resolve & property injection (Commerce8)
+                            
                             Console.WriteLine("8 - Post Construction resolve & Property injection");
                             Console.WriteLine();
+
+                            builder.RegisterType<Commerce8>().PropertiesAutowired();
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                                .Where(t => t.Name.EndsWith("SuffixID")).As(t =>t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t => t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
+                            builder.RegisterType<ProcessorLocatorGeneric>().As<IProcessorLocatorGeneric>();
+
+                            _container = builder.Build();
+
+                            //First Call in old fashion
+                            Commerce8 commerce8 = new Commerce8();
+
+                            //Second Call in old fashion
+                            //Commerce8 commerce8 = _container.Resolve<Commerce8>();
+
+                            commerce8.ProcessOrder(orderInfo);
+
                             break;
 
                         case "9":
