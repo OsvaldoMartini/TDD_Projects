@@ -63,7 +63,7 @@ namespace DI.Autofac
                             //regular container usage (Commerce1)
                             Console.WriteLine("1 - Regular DI Usage");
                             Console.WriteLine();
-                            
+
                             builder.RegisterType<Commerce1>();
                             builder.RegisterType<BillingProcessSuffixID>().As<IBillingProcessSuffixID>();
                             builder.RegisterType<CustomerSuffixID>().As<ICustomerSuffixID>();
@@ -98,7 +98,7 @@ namespace DI.Autofac
                             //general service locator (Commerce3)
                             Console.WriteLine("3 - General service locator");
                             Console.WriteLine();
-                            
+
                             builder.RegisterType<Commerce3>();
                             builder.RegisterType<BillingProcessSuffixID>().As<IBillingProcessSuffixID>();
                             builder.RegisterType<CustomerSuffixID>().As<ICustomerSuffixID>();
@@ -116,7 +116,7 @@ namespace DI.Autofac
                             //lifetime scope & singleton (Commerce4)
                             Console.WriteLine("4 - Lifetime scope");
                             Console.WriteLine();
-                            
+
                             builder.RegisterType<Commerce4>();
                             builder.RegisterType<BillingProcessSuffixID>().As<IBillingProcessSuffixID>();
                             builder.RegisterType<CustomerSuffixID>().As<ICustomerSuffixID>();
@@ -128,10 +128,10 @@ namespace DI.Autofac
                             _container = builder.Build();
 
                             //Sample lifetame scope resolving
-                                //using (ILifetimeScope scope = _container.BeginLifetimeScope())
-                                //{
-                                //    Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
-                                //}
+                            //using (ILifetimeScope scope = _container.BeginLifetimeScope())
+                            //{
+                            //    Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
+                            //}
                             //if dependencies were "Disposable", they would now be disposable and released
                             //without lifetime scope the container would hold on to  disposable components
 
@@ -144,10 +144,10 @@ namespace DI.Autofac
 
                             commerce4 = _container.Resolve<Commerce4>();
                             commerce4.ProcessOrder(orderInfo);
-                            
+
                             Console.WriteLine("Press 'Enter' to process again...");
                             Console.ReadLine();
- 
+
                             commerce4 = _container.Resolve<Commerce4>();
                             commerce4.ProcessOrder(orderInfo);
 
@@ -167,7 +167,7 @@ namespace DI.Autofac
                             Commerce5 commerce5 = _container.Resolve<Commerce5>();
 
                             commerce5.ProcessOrder(orderInfo);
-                            
+
                             break;
 
                         case "6":
@@ -176,7 +176,7 @@ namespace DI.Autofac
                             Console.WriteLine();
                             builder.RegisterType<Commerce6>();
                             builder.RegisterModule<ProcessorRegistrationModule>();
-                          
+
                             _container = builder.Build();
                             Commerce6 commerce6 = _container.Resolve<Commerce6>();
 
@@ -194,10 +194,10 @@ namespace DI.Autofac
                             builder.RegisterType<NotifierSuffixID>().As<INotifierSuffixID>();
                             builder.RegisterType<LoggerSuffixID>().As<ILoggerSuffixID>();
                             builder.RegisterType<ProcessorLocatorGeneric>().As<IProcessorLocatorGeneric>();
-                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t=>t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t => t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
 
                             _container = builder.Build();
-                            
+
                             Commerce7 commerce7 = _container.Resolve<Commerce7>();
 
                             commerce7.ProcessOrder(orderInfo);
@@ -205,13 +205,13 @@ namespace DI.Autofac
                             break;
                         case "8":
                             // post-construction resolve & property injection (Commerce8)
-                            
+
                             Console.WriteLine("8 - Post Construction resolve & Property injection");
                             Console.WriteLine();
 
                             builder.RegisterType<Commerce8>().PropertiesAutowired();
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                                .Where(t => t.Name.EndsWith("SuffixID")).As(t =>t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
+                                .Where(t => t.Name.EndsWith("SuffixID")).As(t => t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                                 .Where(t => t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
                             builder.RegisterType<ProcessorLocatorGeneric>().As<IProcessorLocatorGeneric>();
@@ -233,10 +233,29 @@ namespace DI.Autofac
                         case "9":
                             Console.WriteLine("9 - Construction finder");
                             Console.WriteLine();
-                           
+                            //constructor finder (Commerce9)
+
+                            builder.RegisterType<Commerce9>().WithParameters(new List<Parameter>()
+                            {
+                                new NamedParameter("a",1),
+                                new NamedParameter("b",1),
+                                new NamedParameter("c",1),
+                                new NamedParameter("d",1)});
+
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                                .Where(t => t.Name.EndsWith("SuffixID")).As(t => t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                                .Where(t => t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
+                            builder.RegisterType<ProcessorLocatorGeneric>().As<IProcessorLocatorGeneric>();
+
+                            _container = builder.Build();
+
+                            Commerce9 commerce9 = _container.Resolve<Commerce9>();
+
+                            commerce9.ProcessOrder(orderInfo);
 
                             break;
-                        
+
                         default:
 
                             break;
@@ -246,7 +265,7 @@ namespace DI.Autofac
                 }
 
             }
-          
+
 
             Console.WriteLine("");
             Console.WriteLine("Press [Enter] to exit...");
