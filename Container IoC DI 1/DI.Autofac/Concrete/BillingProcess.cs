@@ -3,7 +3,7 @@ using DI.Autofac.Interfaces;
 
 namespace DI.Autofac.Concrete
 {
-    public class BillingProcessor : IBillingProcessor
+    public class BillingProcess : IBillingProcess
     {
         public void ProcessPayment(string customer, string creditCard, double price)
         {

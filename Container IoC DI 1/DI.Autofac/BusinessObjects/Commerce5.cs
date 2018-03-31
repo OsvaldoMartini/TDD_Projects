@@ -1,16 +1,21 @@
-﻿using DI.Autofac.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DI.Autofac.Interfaces;
 using DI.Autofac.Models;
 
 namespace DI.Autofac.BusinessObjects
 {
-    public class Commerce
+    public class Commerce5
     {
         private IBillingProcess _BillingProcessor;
         private ICustomer _Customer;
         private INotifier _Notifier;
         private ILogger _Logger;
 
-        public Commerce(IBillingProcess billingProcessor,ICustomer customer, INotifier notifier, ILogger logger)
+        public Commerce5(IBillingProcess billingProcessor, ICustomer customer, INotifier notifier, ILogger logger)
         {
             _BillingProcessor = billingProcessor;
             _Customer = customer;
@@ -20,9 +25,9 @@ namespace DI.Autofac.BusinessObjects
 
         public void ProcessOrder(OrderInfo orderInfo)
         {
-            _BillingProcessor.ProcessPayment(orderInfo.CustomerName,orderInfo.CreditCard,orderInfo.Price);
+            _BillingProcessor.ProcessPayment(orderInfo.CustomerName, orderInfo.CreditCard, orderInfo.Price);
             _Logger.Log("Billing Processed");
-            _Customer.UpdateCustomerOrder(orderInfo.CustomerName,orderInfo.Product);
+            _Customer.UpdateCustomerOrder(orderInfo.CustomerName, orderInfo.Product);
             _Logger.Log("Customer Updated");
             _Notifier.SendReceipt(orderInfo);
             _Logger.Log("Receipt Sent");
@@ -30,3 +35,4 @@ namespace DI.Autofac.BusinessObjects
 
     }
 }
+

@@ -3,11 +3,11 @@ using Autofac;
 
 namespace DI.Autofac.Concrete
 {
-    public class BillingProcessorLocator : IBillingProcessorLocator
+    public class BillingProcessorLocator : IBillingProcessLocator
     {
-        IBillingProcessor IBillingProcessorLocator.GetBillingProcessor()
+        IBillingProcess IBillingProcessLocator.GetBillingProcessor()
         {
-            return Program._container.Resolve<IBillingProcessor>();
+            return Program._container.Resolve<IBillingProcess>();
         }
     }
 }

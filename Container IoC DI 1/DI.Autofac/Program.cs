@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using Autofac;
 using DI.Autofac.BusinessObjects;
 using DI.Autofac.Concrete;
@@ -59,7 +61,7 @@ namespace DI.Autofac
                             //regular contgainer usage (Commerce1)
 
                             builder.RegisterType<Commerce1>();
-                            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
                             builder.RegisterType<Customer>().As<ICustomer>();
                             builder.RegisterType<Notifier>().As<INotifier>();
                             builder.RegisterType<Logger>().As<ILogger>();
@@ -73,11 +75,11 @@ namespace DI.Autofac
                         case "2":
                             //specific service locator (Commerce2)
                             builder.RegisterType<Commerce2>();
-                            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
                             builder.RegisterType<Customer>().As<ICustomer>();
                             builder.RegisterType<Notifier>().As<INotifier>();
                             builder.RegisterType<Logger>().As<ILogger>();
-                            builder.RegisterType<BillingProcessorLocator>().As<IBillingProcessorLocator>();
+                            builder.RegisterType<BillingProcessorLocator>().As<IBillingProcessLocator>();
 
                             _container = builder.Build();
 
@@ -86,9 +88,9 @@ namespace DI.Autofac
                             commerce2.ProcessOrder(orderInfo);
                             break;
                         case "3":
-                            //genreal service locator (Commerce3)
+                            //general service locator (Commerce3)
                             builder.RegisterType<Commerce3>();
-                            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
                             builder.RegisterType<Customer>().As<ICustomer>();
                             builder.RegisterType<Notifier>().As<INotifier>();
                             builder.RegisterType<Logger>().As<ILogger>();
@@ -99,6 +101,49 @@ namespace DI.Autofac
                             Commerce3 commerce3 = _container.Resolve<Commerce3>();
 
                             commerce3.ProcessOrder(orderInfo);
+                            break;
+                        case "4":
+                            //lifetime scope & singleton (Commerce4)
+                            builder.RegisterType<Commerce4>();
+                            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
+                            builder.RegisterType<Customer>().As<ICustomer>();
+                            builder.RegisterType<Notifier>().As<INotifier>();
+                            builder.RegisterType<Logger>().As<ILogger>();
+                            builder.RegisterType<ProcessorLocator2>().As<IProcessorLocator2>();
+                            builder.RegisterType<SingleTest>().As<ISingleTest>().SingleInstance();
+
+                            _container = builder.Build();
+
+                            //Sample lifetame scope resolving
+                            using (ILifetimeScope scope = _container.BeginLifetimeScope())
+                            {
+                                Commerce4 scopedCommerce = scope.Resolve<Commerce4>();
+                            }
+                            //if dependencies were "Disposable", they would now be disposable and released
+                            //without lifetime scope the container would hold on to  disposable components
+
+                            Commerce4 commerce4 = _container.Resolve<Commerce4>();
+
+                            commerce4.ProcessOrder(orderInfo);
+
+                            Console.WriteLine("Press 'Enter' to process again...");
+                            Console.ReadLine();
+
+                            commerce4 = _container.Resolve<Commerce4>();
+                            commerce4.ProcessOrder(orderInfo);
+                            break;
+                        case "5":
+                            //assembly scanning (Commerce5)
+                            builder.RegisterType<Commerce5>();
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                                .Where(t => t.Name.EndsWith("Processor")).As(t =>
+                                    t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
+
+                            _container = builder.Build();
+                            Commerce5 commerce5 = _container.Resolve<Commerce5>();
+
+                            commerce5.ProcessOrder(orderInfo);
+                            
                             break;
 
                         default:

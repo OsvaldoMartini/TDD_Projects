@@ -90,7 +90,7 @@ namespace DI.Autofac.Tests
             };
 
             builder.RegisterType<Commerce1>();
-            builder.RegisterType<BillingProcessor>().As<IBillingProcessor>();
+            builder.RegisterType<BillingProcess>().As<IBillingProcess>();
             builder.RegisterType<Customer>().As<ICustomer>();
             builder.RegisterType<Notifier>().As<INotifier>();
             builder.RegisterType<Logger>().As<ILogger>();
