@@ -76,6 +76,8 @@
     <Compile Include="Concrete\ProcessorLocatorScope.cs" />
     <Compile Include="Concrete\ProcessorRegistrationModule.cs" />
     <Compile Include="Concrete\SingleTest.cs" />
+    <Compile Include="ConstructorFinder\AwesomeConstructorAttribute.cs" />
+    <Compile Include="ConstructorFinder\AwesomeConstructorFinder.cs" />
     <Compile Include="Interfaces\IPostOrderPlugin.cs" />
     <Compile Include="Interfaces\IProcessorLocatorGeneric.cs" />
     <Compile Include="Concrete\ProcessorLocatorGeneric.cs" />

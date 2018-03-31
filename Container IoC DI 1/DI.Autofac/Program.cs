@@ -6,6 +6,7 @@ using Autofac;
 using Autofac.Core;
 using DI.Autofac.BusinessObjects;
 using DI.Autofac.Concrete;
+using DI.Autofac.ConstructorFinder;
 using DI.Autofac.Interfaces;
 using DI.Autofac.Models;
 
@@ -235,12 +236,22 @@ namespace DI.Autofac
                             Console.WriteLine();
                             //constructor finder (Commerce9)
 
+                            //Example with Problem
+                            //builder.RegisterType<Commerce9>().WithParameters(new List<Parameter>()
+                            //{
+                            //    new NamedParameter("a",1),
+                            //    new NamedParameter("b",1),
+                            //    new NamedParameter("c",1),
+                            //    new NamedParameter("d",1)});
+
+                            //Solution with Constructor Finder with same registration
                             builder.RegisterType<Commerce9>().WithParameters(new List<Parameter>()
                             {
                                 new NamedParameter("a",1),
                                 new NamedParameter("b",1),
                                 new NamedParameter("c",1),
-                                new NamedParameter("d",1)});
+                                new NamedParameter("d",1)}).FindConstructorsWith(new AwesomeConstructorFinder());
+
 
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                                 .Where(t => t.Name.EndsWith("SuffixID")).As(t => t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using System.Collections.Generic;
 using DI.Autofac.Concrete;
+using DI.Autofac.ConstructorFinder;
 using DI.Autofac.Interfaces;
 using DI.Autofac.Models;
 
@@ -15,7 +11,8 @@ namespace DI.Autofac.BusinessObjects
         public IProcessorLocatorGeneric _ProcessorLocatorGeneric;
         public IEnumerable<IPostOrderPlugin> _Plugins;
 
-        //[AwesomeConstructor]
+        //I am able to Decorate the constructor like below
+        [AwesomeConstructor]
         public Commerce9(IProcessorLocatorGeneric processorLocatorGeneric, IEnumerable<IPostOrderPlugin> plugins)
         {
             _ProcessorLocatorGeneric = processorLocatorGeneric;
