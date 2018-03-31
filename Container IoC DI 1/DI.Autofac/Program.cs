@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Autofac;
+using Autofac.Core;
 using DI.Autofac.BusinessObjects;
 using DI.Autofac.Concrete;
 using DI.Autofac.Interfaces;
@@ -210,17 +212,20 @@ namespace DI.Autofac
                             builder.RegisterType<Commerce8>().PropertiesAutowired();
                             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                                 .Where(t => t.Name.EndsWith("SuffixID")).As(t =>t.GetInterfaces().FirstOrDefault(i => i.Name.StartsWith("I" + t.Name)));
-                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t => t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
+                            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                                .Where(t => t.Name.StartsWith("Plugin")).As<IPostOrderPlugin>();
                             builder.RegisterType<ProcessorLocatorGeneric>().As<IProcessorLocatorGeneric>();
 
                             _container = builder.Build();
 
                             //First Call in old fashion
-                            Commerce8 commerce8 = new Commerce8();
+                            //First Case little coupled injection using the constructor
+                            //Commerce8 commerce8 = new Commerce8();
 
                             //Second Call in old fashion
-                            //Commerce8 commerce8 = _container.Resolve<Commerce8>();
+                            Commerce8 commerce8 = _container.Resolve<Commerce8>();
 
+                            //Second Case less coupled injection and I dont touch the constructor
                             commerce8.ProcessOrder(orderInfo);
 
                             break;
@@ -228,6 +233,8 @@ namespace DI.Autofac
                         case "9":
                             Console.WriteLine("9 - Construction finder");
                             Console.WriteLine();
+                           
+
                             break;
                         
                         default:

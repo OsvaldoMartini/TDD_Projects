@@ -12,13 +12,16 @@ namespace DI.Autofac.BusinessObjects
 {
     public class Commerce8
     {
+        //Second Case the AutoFac will inject this properties
         public IProcessorLocatorGeneric _ProcessorLocatorGeneric { get; set; }
         public IEnumerable<IPostOrderPlugin> _Plugins { get; set; }
         public Commerce8()
         {
             //When you finally get newing up, go ahead and Resolve the Process
             //Recursive process to find teh property and find the Dependency Injection
-            Program._container.InjectProperties(this);
+            //First Case UnCommented the code Below
+            //Second Case Just Let commented
+            //Program._container.InjectProperties(this);
         }
 
         public void ProcessOrder(OrderInfo orderInfo)
