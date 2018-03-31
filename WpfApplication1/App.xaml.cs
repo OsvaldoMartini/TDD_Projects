@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace UIAutomationController
+namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for App.xaml
