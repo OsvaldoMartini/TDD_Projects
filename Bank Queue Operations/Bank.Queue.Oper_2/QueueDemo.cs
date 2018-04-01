@@ -1,23 +1,17 @@
 using System;
-using System.Collections; // needed for Queue 
+using Bank.Queue.Oper_2.Types;
 
-namespace QueueExample1
+
+
+namespace Bank.Queue.Oper_2
 {
-    struct BankCustomer
-    {
-        internal string name;
-        internal string bankingActivity;
-        internal int accountNumber;
-        internal float amount;
-    }
-    enum BankingActivity
-    { deposit, withdrawl, transferFunds }
 
+  
     class QueueDemo
     {  // Create a customer
         private BankCustomer localBankCustomer;
         // create the Queue
-        Queue localBankQueue = new Queue();
+        System.Collections.Queue localBankQueue = new System.Collections.Queue();
 
         public void QueueCustomers()
         {

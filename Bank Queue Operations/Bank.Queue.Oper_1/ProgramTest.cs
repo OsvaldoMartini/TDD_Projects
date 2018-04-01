@@ -1,6 +1,6 @@
 using System;
 
-namespace QueueExample2
+namespace Bank.Queue.Oper_1
 {
     class ProgramTest
     {

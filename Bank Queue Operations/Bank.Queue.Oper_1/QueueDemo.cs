@@ -1,61 +1,23 @@
 using System;
-using System.Collections; // needed for Queue 
-namespace QueueExample2
+using Bank.Queue.Oper_1.Concrete;
+using DefinedQueue = System.Collections.Queue;
+// needed for Queue 
+namespace Bank.Queue.Oper_1
 {
-
-    public class BankCustomer
-    {
-
-        private string customerName;
-        private string customerActivity;
-        private int customerNumber;
-        private int customerAmount;
-
-        public BankCustomer()
-        { }
-        public BankCustomer(string name, string bankingActivity, int accountNumber, int amount)
-        {
-            customerName = name;
-            customerActivity = bankingActivity;
-            customerNumber = accountNumber;
-            customerAmount = amount;
-        }
-        public string name
-        {
-            get { return customerName; }
-            set { customerName = value; }
-        }
-        public string bankingActivity
-        {
-            get { return customerActivity; }
-            set { customerActivity = value; }
-        }
-        public int accountNumber
-        {
-            get { return customerNumber; }
-            set { customerNumber = value; }
-        }
-        public int amount
-        {
-            get { return customerAmount; }
-            set { customerAmount = value; }
-        }
-    }
-
     public class Bank
     {
-        public Queue TellerLine = new Queue();
+        public DefinedQueue localBankQueue = new DefinedQueue();
         public int AmountOnDeposit = 10000;
         public enum BankingActivity
         { deposit, withdrawl, transferFunds };
 
 
-        public void QueueContentsCopy(Queue localQueue)
+        public void QueueContentsCopy(DefinedQueue localQueue)
         {
             BankCustomer tempCustomer = new BankCustomer();
-            Queue copyoflocalQueue = new Queue();
+            DefinedQueue copyoflocalQueue = new DefinedQueue();
             // make the copy 
-            copyoflocalQueue = (Queue)localQueue.Clone();
+            copyoflocalQueue = (DefinedQueue)localQueue.Clone();
             Console.WriteLine(" ");
             Console.WriteLine("View the queue using a copy");
             do
@@ -64,7 +26,7 @@ namespace QueueExample2
                 Console.WriteLine("Name: " + tempCustomer.name + ",  Activity: " + tempCustomer.bankingActivity + ",  Account no: " + tempCustomer.accountNumber.ToString() + ", Amount $" + tempCustomer.amount.ToString());
             } while (copyoflocalQueue.Count != 0);
         }
-        public void QueueContentsEnum(Queue localQueue)
+        public void QueueContentsEnum(DefinedQueue localQueue)
         {
             BankCustomer tempCustomer = new BankCustomer();
             // get the built in enumerator
@@ -78,7 +40,7 @@ namespace QueueExample2
 
             }
         }
-        public void QueuePeek(Queue localQeue)
+        public void QueuePeek(DefinedQueue localQeue)
         {
             BankCustomer tempCustomer = new BankCustomer();
             tempCustomer = (BankCustomer)localQeue.Peek();

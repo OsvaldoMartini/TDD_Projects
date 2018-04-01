@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("QueueExample1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Silver Software Design")]
+[assembly: AssemblyCompany("WServices")]
 [assembly: AssemblyProduct("QueueExample1")]
-[assembly: AssemblyCopyright("Copyright © Silver Software Design 2006")]
+[assembly: AssemblyCopyright("Copyright © Osvaldo Martini 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
