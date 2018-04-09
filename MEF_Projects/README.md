@@ -1,5 +1,5 @@
 MEF - Projects
-Microsoft Extensible Framework
+Managed Extensibility Framework (MEF)
 
 
 Very Important
