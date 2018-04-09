@@ -54,7 +54,11 @@ namespace Fibonacci_Tests
         [TestCase(1, 1)]
         [TestCase(2, 1)]
         [TestCase(3, 2)]
-        [TestCase(4, 5)]
+        [TestCase(4, 3)]
+        [TestCase(5, 5)]
+        [TestCase(6, 8)]
+        [TestCase(10,55)]
+
         public void Fibonacci_Test_Recursive(int input, int expected)
         {
             //Arrange
