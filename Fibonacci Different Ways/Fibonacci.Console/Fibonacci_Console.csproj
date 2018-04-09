@@ -7,8 +7,8 @@
     <ProjectGuid>{919EE193-7B0F-4199-83F5-84325F2354A9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fibonacci.Console</RootNamespace>
-    <AssemblyName>Fibonacci.Console</AssemblyName>
+    <RootNamespace>Fibonacci_Console</RootNamespace>
+    <AssemblyName>Fibonacci_Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -52,9 +52,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fibonacci.Calculation\Fibonacci.Calculation.csproj">
+    <ProjectReference Include="..\Fibonacci.Calculation\Fibonacci_Calculation.csproj">
       <Project>{c5ced10b-e814-4118-9591-b4a032817191}</Project>
-      <Name>Fibonacci.Calculation</Name>
+      <Name>Fibonacci_Calculation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

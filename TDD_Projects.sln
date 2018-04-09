@@ -30,15 +30,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Queue.Oper_1", "Bank Q
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Queue.Oper_2", "Bank Queue Operations\Bank.Queue.Oper_2\Bank.Queue.Oper_2.csproj", "{46A699A9-D612-4BEE-91C6-B09AC17A8E6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Tests", "Fibonacci Different Ways\Fibonacci.Tests\Fibonacci.Tests.csproj", "{A90629DB-565B-4592-8348-7DEEE7C3FFDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci_Tests", "Fibonacci Different Ways\Fibonacci.Tests\Fibonacci_Tests.csproj", "{A90629DB-565B-4592-8348-7DEEE7C3FFDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Random.Generators", "Random.Generators", "{CACA71BE-28F1-4D4B-8C1A-D5A1EC3945FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Random.Generators", "Random.Generators\Random.Generators.csproj", "{861AD10F-699D-4662-AC3B-FA17173DA1D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Calculation", "Fibonacci Different Ways\Fibonacci.Calculation\Fibonacci.Calculation.csproj", "{C5CED10B-E814-4118-9591-B4A032817191}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci_Calculation", "Fibonacci Different Ways\Fibonacci.Calculation\Fibonacci_Calculation.csproj", "{C5CED10B-E814-4118-9591-B4A032817191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Console", "Fibonacci Different Ways\Fibonacci.Console\Fibonacci.Console.csproj", "{919EE193-7B0F-4199-83F5-84325F2354A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci_Console", "Fibonacci Different Ways\Fibonacci.Console\Fibonacci_Console.csproj", "{919EE193-7B0F-4199-83F5-84325F2354A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
