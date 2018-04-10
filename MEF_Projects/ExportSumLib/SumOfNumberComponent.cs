@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using System.Diagnostics;
 using Algol_Contracts;
 
 namespace ExportSumLib
@@ -12,6 +13,7 @@ namespace ExportSumLib
             get { return "Summation of components"; }
         }
 
+        [DebuggerStepThrough]
         public string ManipulateOperation(params double[] args)
         {
             string result = "";

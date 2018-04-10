@@ -14,6 +14,7 @@ namespace ExportMultiplyLib
             get { return "Multiplication of components"; }
         }
 
+        [DebuggerStepThrough]
         public string ManipulateOperation(params double[] args)
         {
             string result = "";

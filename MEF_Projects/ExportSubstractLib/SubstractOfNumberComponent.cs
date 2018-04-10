@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using System.Diagnostics;
 using Algol_Contracts;
 
 namespace ExportSubstractLib
@@ -12,6 +13,7 @@ namespace ExportSubstractLib
             get { return "Subtraction of components"; }
         }
 
+        [DebuggerStepThrough]
         public string ManipulateOperation(params double[] args)
         {
             string result = "";
